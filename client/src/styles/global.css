@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "poppinsMedium";
+    src: url("./fonts/Poppins-Medium.ttf");
+} 
+
+
+@font-face {
+    font-family: "poppinsBold";
+    src: url("./fonts/Poppins-Bold.ttf");
+} 
+
+@font-face {
+    font-family: "poppinsExtraBold";
+    src: url("./fonts/Poppins-ExtraBold.ttf");
+} 
+
+
+@font-face {
+    font-family: "poppinsLight";
+    src: url("./fonts/Poppins-Light.ttf");
+} 
+
+.dropdown > a {
+    color:white;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.dropdown > a:hover {
+    color:white;
+    text-decoration:none;
+    cursor:pointer;
+} 
+
+
+body{
+    padding-top: 150px;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+.header{
+    background-color: white;
+    height: 80px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.logo{
+    margin-left: 30px;  
+}
+
+@media only screen and (max-width: 800px) {
+  .logo{
+    height: 30px;
+  }
+
+  .menu{
+    height: 20px;
+}
+}
+
+@media only screen and (min-width: 600px) {
+    .logo{
+        height: 60px;
+    }
+}
+
+
+.user-icon{
+    background-color: #e76c2a;
+}

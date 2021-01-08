@@ -1,0 +1,54 @@
+.auth-heading{
+    font-family: "poppinsBold";
+    font-size:  80pt;
+    letter-spacing: 10px;
+}
+
+
+.auth-sub-heading{
+    font-family: "poppinsMedium";
+    font-size:  10pt;
+    letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 900px) {
+    .auth-heading{
+        font-size: 40pt;
+        letter-spacing: 5px;
+    }
+
+    .auth-sub-heading{
+        font-size: 10pt;
+        letter-spacing: 1px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .auth-heading{
+        font-size: 40pt;
+        letter-spacing: 1px;
+    }
+
+    .auth-sub-heading{
+        font-size: 8pt;
+        letter-spacing: 1px;
+    }
+}
+
+.avatar-name{
+    color: #4d8c20;
+    font-size: 25px;
+}
+
+
+.date-heading{
+    color: #797979;
+    font-size: 15px;
+}
+
+.heading-blog{
+    font-family: poppinsLight;
+    font-size: 25pt;
+    margin-top: 30px;
+}

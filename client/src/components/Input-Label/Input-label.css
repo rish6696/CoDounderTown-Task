@@ -1,0 +1,64 @@
+
+.form-input{
+    background-color: transparent;
+    border: 1px solid #BC3A80;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 15pt;
+    font-family: poppinsMedium;
+}
+
+.form-input, select, textarea{
+    color: white;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .form-input{
+        font-size: 10pt;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .form-input{
+        font-size: 7pt;
+    }
+}
+
+
+@media only screen and (max-width: 300px) {
+    .form-input{
+        font-size: 5pt;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 650px) {
+    .google-btn{
+        width: 220px;
+    }
+}
+
+
+
+@media only screen and (max-width: 450px) {
+    .google-btn{
+        width: 125px;
+    }
+}
+
+
+@media only screen and (max-width: 350px) {
+    .google-btn{
+        width: 100px;
+    }
+}
+

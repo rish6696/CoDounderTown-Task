@@ -1,0 +1,42 @@
+import React from "react";
+import Circle from "../CircleComponent/Index";
+import { Dropdown } from 'react-bootstrap'
+import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom'
+
+function Index({history}) {
+
+  const logout =()=>{
+    history.push('/user/blogs')
+  }
+  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+    <a
+      href=""
+      ref={ref}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick(e);
+      }}
+    >
+      <Circle className="user-icon" radius={50}>
+        <div style={{ fontFamily: "poppinsBold" }}>R</div>
+      </Circle>
+      {children}
+    </a>
+  ));
+
+  return (
+    <Dropdown>
+      <Dropdown.Toggle as={CustomToggle} id="dropdown-basic"></Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item onClick={logout} > My Blogs</Dropdown.Item>
+        <Dropdown.Item>Logout</Dropdown.Item>
+        <Dropdown.Item >Change Password</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+
+
+export default withRouter(Index);
