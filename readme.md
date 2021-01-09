@@ -1,17 +1,17 @@
 
 
 <img src="Screenshot from 2021-01-10 04-31-12.png" align="right"
-     alt="Size Limit logo by Anton Lovchikov" width="520" height="178">
+     alt="Size Limit logo by Anton Lovchikov" width="820" height="300">
 
 
 
 <img src="Screenshot from 2021-01-10 04-31-41.png" align="right"
-     alt="Size Limit logo by Anton Lovchikov" width="520" height="178">
+     alt="Size Limit logo by Anton Lovchikov" width="820" height="300">
 
 
 
  <img src="Screenshot from 2021-01-10 04-31-27.png" align="right"
-     alt="Size Limit logo by Anton Lovchikov" width="520" height="178">
+     alt="Size Limit logo by Anton Lovchikov" width="820" height="300">
 
 
 <!-- ABOUT THE PROJECT -->
