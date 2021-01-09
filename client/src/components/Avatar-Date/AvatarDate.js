@@ -8,16 +8,16 @@ import Heading from '../Headings/Index'
 
 
 
-export default function AvatarDate() {
+export default function AvatarDate({style}) {
 
     const imgUrl=`https://miro.medium.com/fit/c/96/96/1*468th8heNDWf1fqX-Ws0Hw.jpeg`
   return (
-    <FLexLayout rowORColumn="row" alignItem='center'  >
+    <FLexLayout rowORColumn="row" alignItem='center' style={{...style}}  >
       <Image style={{height:"50px",width:"50px"}} src={imgUrl} roundedCircle />
 
       <div  style={{marginLeft:'20px'}} >
           <Heading className='avatar-name' text='amer Buna in EdgeCoders' ></Heading>
-          <Heading className='avatar-heading' text='Aug 18, 2017. 59 minutes read &#9733;' ></Heading>
+          <Heading className='date-heading' text='Aug 18, 2017. 59 minutes read &#9733;' ></Heading>
       </div>
     </FLexLayout>
   );

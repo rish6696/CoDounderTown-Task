@@ -28,6 +28,7 @@ export default function Index() {
             <Col style={{ borderRight: "1px solid #FFFFFF", padding: "20px" }}>
               <FLexLayout style={{ alignItem: "center", justifyContent: "center" }}>
                 <InputFormComponent
+                  isLogin={true}
                   btnText="Login"
                   inputFields={["Email", "Password"]}
                 ></InputFormComponent>

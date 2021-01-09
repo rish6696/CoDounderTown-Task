@@ -30,6 +30,7 @@ function Index({history}) {
       <Dropdown.Toggle as={CustomToggle} id="dropdown-basic"></Dropdown.Toggle>
 
       <Dropdown.Menu>
+        <Dropdown.Item onClick={()=>history.push('/blog/create')} > Write a Story </Dropdown.Item>
         <Dropdown.Item onClick={logout} > My Blogs</Dropdown.Item>
         <Dropdown.Item>Logout</Dropdown.Item>
         <Dropdown.Item >Change Password</Dropdown.Item>

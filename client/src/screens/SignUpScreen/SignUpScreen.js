@@ -6,6 +6,8 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import InputFormComponent from "../../components/InputFormComponent/Index";
 import {Link} from 'react-router-dom'
 
+
+
 export default function Index() {
 
     document.body.style.paddingTop= "0px"
@@ -29,6 +31,7 @@ export default function Index() {
             <Col style={{ borderRight: "1px solid #FFFFFF", padding: "20px" }}>
               <FLexLayout style={{ alignItem: "center", justifyContent: "center" }}>
                 <InputFormComponent
+                  isLogin={false}
                   btnText="Sign Up"
                   inputFields={["Name","Email","Password","Re-enter password"]}
                 ></InputFormComponent>
@@ -55,3 +58,5 @@ export default function Index() {
     </div>
   );
 }
+
+

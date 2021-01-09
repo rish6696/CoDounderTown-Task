@@ -15,4 +15,10 @@ const pageWidth = (state = { value: 0 }, action) => {
   }
 };
 
+
+const authReducer=(state={},action)=>{
+  
+
+}
+
 export default combineReducers({pageWidth})

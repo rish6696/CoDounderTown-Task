@@ -1,0 +1,10 @@
+.blog-input{
+    height:100px;
+    font-family: poppinsLight;
+    font-size: 30pt;
+    border: none;
+    border-width: 0px;
+    padding: 20px;
+    border-bottom: 1px solid black;
+    color: black;
+}

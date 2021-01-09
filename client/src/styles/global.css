@@ -33,8 +33,28 @@
 } 
 
 
+
+.blog-card > a {
+    color:black;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.blog-card > a:hover {
+    color:black;
+    text-decoration:none;
+    cursor:pointer;
+} 
+
+
 body{
     padding-top: 150px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline: none;
 }
 
 

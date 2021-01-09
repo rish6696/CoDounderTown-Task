@@ -1,7 +1,26 @@
+.heading-blog{
+    font-family: poppinsLight;
+    font-size: 25pt;
+    margin-top: 30px; 
+}
+
 .auth-heading{
     font-family: "poppinsBold";
     font-size:  80pt;
     letter-spacing: 10px;
+}
+
+.avatar-name{
+    color: #4d8c20;
+    font-size: 25px;
+}
+
+.blog-read-heading{
+    font-family: poppinsExtraBold;
+    font-size: 30pt;
+    letter-spacing: 5px;
+    color: black;
+    margin: 20px;
 }
 
 
@@ -9,6 +28,11 @@
     font-family: "poppinsMedium";
     font-size:  10pt;
     letter-spacing: 1px;
+}
+
+.date-heading{
+    color: #797979;
+    font-size: 15px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -20,6 +44,17 @@
     .auth-sub-heading{
         font-size: 10pt;
         letter-spacing: 1px;
+    }
+
+    .heading-blog{
+        font-size: 20pt;
+    }
+
+    .blog-read-heading{
+        font-family: poppinsBold;
+        font-size: 20pt;
+        letter-spacing: 5px;
+        color: black;
     }
 }
 
@@ -34,21 +69,31 @@
         font-size: 8pt;
         letter-spacing: 1px;
     }
+
+    .heading-blog{
+        font-size: 15pt;
+    }
+
+    .avatar-name{
+       font-size: 15pt;
+    }
+
+    .date-heading{
+        font-size: 8pt;
+    }
+
+    .blog-read-heading{
+        font-family: poppinsExtraBold;
+        font-size: 15pt;
+        letter-spacing: 5px;
+        color: black;
+    }
+
+
+
 }
 
-.avatar-name{
-    color: #4d8c20;
-    font-size: 25px;
-}
 
 
-.date-heading{
-    color: #797979;
-    font-size: 15px;
-}
 
-.heading-blog{
-    font-family: poppinsLight;
-    font-size: 25pt;
-    margin-top: 30px;
-}
+

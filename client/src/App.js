@@ -9,8 +9,9 @@ const LoadAbleComponent = Loadable.Map({
     UserBlogs :()=>import("./screens/UserBlogs/Index"),
     LoginScreen :()=>import("./screens/LoginScreen/LoginScreen"),
     SignUpScreen :()=>import("./screens/SignUpScreen/SignUpScreen"),
-    BlogScreen :()=>import("./screens/BlogScreen/BlogScreen")
-
+    BlogScreen :()=>import("./screens/ListBlogsScreen/ListBlogScreen"),
+    BlogReadScreen : ()=>import('./screens/BlogReadScreen/BlogReadScreen'),
+    CreateBlogScreen : ()=>import('./screens/CreateBlogScreen/CreateBlogScreen')
 
   },
   render(loaded, props) {
@@ -21,6 +22,8 @@ const LoadAbleComponent = Loadable.Map({
     let LoginComponent = loaded.LoginScreen.default
     let SignUpComponent = loaded.SignUpScreen.default
     let BlogComponent=loaded.BlogScreen.default
+    let BlogReadScreen=loaded.BlogReadScreen.default
+    let CreateBlogScreenComponent= loaded.CreateBlogScreen.default
 
 
     return (
@@ -44,6 +47,14 @@ const LoadAbleComponent = Loadable.Map({
 
           <Route exact path="/blog">
             <BlogComponent/>
+          </Route>
+
+          <Route exact path="/blog/read/:id">
+            <BlogReadScreen/>
+          </Route>
+
+          <Route exact path="/blog/create">
+            <CreateBlogScreenComponent/>
           </Route>
 
         </div>
