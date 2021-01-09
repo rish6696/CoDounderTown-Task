@@ -1,9 +1,10 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import BackGround from "../../components/BackgroundImage";
 import { connect } from "react-redux";
 import { setWindowSize } from '../../Actions/index'
 import Header from '../../components/Header'
 import Tagline from '../../components/Tagline/Index'
+
 
 function Index(props) {
 
@@ -11,17 +12,22 @@ function Index(props) {
     props.setWindowSize(window.innerWidth)
  }
 
-  useEffect(() => {
-    window.addEventListener("resize", updateWindowSize);
-    updateWindowSize()
 
+
+  useEffect(() => {
+   window.addEventListener("resize", updateWindowSize);
+   updateWindowSize()
+  
+  
     return () => {
       window.removeEventListener("resize", updateWindowSize);
     };
 
-  }, []);
+  });
+
 
   return (
+
     <>
       <BackGround />
       <Header/>

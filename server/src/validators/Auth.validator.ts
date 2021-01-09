@@ -1,4 +1,4 @@
-import Joi,{ number, ObjectSchema } from 'joi'
+import Joi,{ number, ObjectSchema } from '@hapi/joi'
 
 export const signUpValidator:ObjectSchema=Joi.object({
     name:Joi.string().required(),

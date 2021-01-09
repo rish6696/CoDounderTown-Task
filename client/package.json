@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy" :" npm run build && pm2 start server.js --name 'cofounder-stack-frontend' "
+    "deploy": " npm run build && pm2 start server.js --name 'cofounder-stack-frontend' "
   },
   "eslintConfig": {
     "extends": [

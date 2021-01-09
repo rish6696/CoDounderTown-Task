@@ -7,8 +7,11 @@ import { NOT_FOUND } from "./utilities/errorConstants";
 import { errorHandler } from "./middlewares/errorMiddleware";
 import CookieParser from 'cookie-parser'
 import logger from "./utilities/logger";
+import cors from 'cors' 
 
 const app = express();
+
+app.use(cors())
 
 app.use(CookieParser())
 
