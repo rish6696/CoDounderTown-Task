@@ -1,14 +1,19 @@
-import  axios from "axios";
-import { apiServerBaseUrl } from './config'
+import { axiosInstance } from './axiosService'
 
-export  const AuthService = async () => {
-
-  var config = {
-    method: "post",
-    url: ` ${apiServerBaseUrl}auth/user/validate`,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  return axios(config)
+export const validateUser = async ({setLoading,setAuthStatus,setServerDown}) => {
+  try {
+    const { data } = await axiosInstance.post('/auth/user/validate');
+    setLoading(false);
+    setAuthStatus({
+      userLoggedIn: true,
+      userNameAlphabet: data.data.userNameAlphabet,
+    });
+  } catch (error) {
+    setLoading(false);
+    if (!error.response || error.response.status == 500) {
+      setServerDown();
+    } else {
+      setAuthStatus({ userLoggedIn: false, userNameAlphabet: "" });
+    }
+  }
 };

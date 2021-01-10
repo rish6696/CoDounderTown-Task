@@ -89,7 +89,11 @@ export const loginUserController = async (
 
     if (verify == true) {
       const token = JWT.sign(
-        { userId, tokenType: TOKEN_TYPES.LOGIN_STORE_TOKEN_TYPE },
+        {
+          userId,
+          tokenType: TOKEN_TYPES.LOGIN_STORE_TOKEN_TYPE,
+          userNameAlphabet: response.name.charAt(0).toUpperCase(),
+        },
         jwtSecretKey
       );
       res.cookie(AUTH_COOKIE_KEY, token, { httpOnly: true });
@@ -107,33 +111,34 @@ export const loginUserController = async (
   }
 };
 
-
-
 export const validateUserController = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  
   const token = req.cookies[AUTH_COOKIE_KEY];
 
   try {
-    if (!token) return next(new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST));
+    if (!token)
+      return next(
+        new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST)
+      );
 
     const verified = JWT.verify(token, jwtSecretKey) as {
       userId: string;
       iat: number;
       exp: number;
+      userNameAlphabet:string;
     };
 
-    if (!verified) return next(new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST));
+    if (!verified)
+      return next(
+        new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST)
+      );
 
-    return res.send({status:true})
-
+    return res.send({ status: true, data: {userNameAlphabet:verified.userNameAlphabet} });
   } catch (error) {
-    logger.error(
-      `Error while validating user ${generateError(error)}`
-    );
+    logger.error(`Error while validating user ${generateError(error)}`);
     next(new APIError(ERROR_STATUS_CODE.INTERNAL_SERVER_ERROR_CODE, UNEXPECTED_ERROR));
   }
 };

@@ -13,7 +13,10 @@ export const verifyJwtToken = async (
 ): Promise<void> => {
   const token = req.cookies[AUTH_COOKIE_KEY];
   try {
-    if (!token) return next(new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST));
+    if (!token)
+      return next(
+        new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST)
+      );
 
     const verified = JWT.verify(token, jwtSecretKey) as {
       userId: string;
@@ -21,13 +24,25 @@ export const verifyJwtToken = async (
       exp: number;
     };
 
-    if (!verified) return next(new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST));
+    if (!verified)
+      return next(
+        new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST)
+      );
 
     req.body.userId = verified.userId;
-    
+
+    res.header("Content-Type", "application/json;charset=UTF-8");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+
     next();
   } catch (err) {
     logger.error(`Unauthenticated Request with token ${token}`);
-    return next(new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST));
+    return next(
+      new APIError(ERROR_STATUS_CODE.UNAUTHORIZED_REQUEST_CODE, UNAUTHORIZED_REQUEST)
+    );
   }
 };

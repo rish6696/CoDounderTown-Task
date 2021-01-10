@@ -1,9 +1,13 @@
 import { combineReducers } from "redux";
-import { PAGE_RESIZE_ACTION } from "../Actions/types";
+import {
+  LOGIN_ATTEMPT,
+  LOGOUT_ATTEMPT,
+  PAGE_RESIZE_ACTION,
+  SET_SERVER_DOWN,
+} from "../Actions/types";
 
 const pageWidth = (state = { value: 0 }, action) => {
   switch (action.type) {
-
     case PAGE_RESIZE_ACTION:
       return {
         ...state,
@@ -15,10 +19,49 @@ const pageWidth = (state = { value: 0 }, action) => {
   }
 };
 
+const serverInfo = (state = { serverDown: false }, action) => {
+  switch (action.type) {
+    case SET_SERVER_DOWN:
+      return {
+        ...state,
+        serverDown: true,
+      };
 
-const authReducer=(state={},action)=>{
-  
+    default:
+      return state;
+  }
+};
 
-}
+const authReducer = (
+  state = {
+    authStatus: {
+      userLoggedIn: false,
+      userNameAlphabet: "",
+    },
+  },
+  action
+) => {
+  switch (action.type) {
+    case LOGIN_ATTEMPT:
+      return {
+        ...state,
+        authStatus: {
+          ...action.payload,
+        },
+      };
 
-export default combineReducers({pageWidth})
+    case LOGOUT_ATTEMPT:
+      return {
+        ...state,
+        authStatus: {
+          userLoggedIn: false,
+          userNameAlphabet: "",
+        },
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({ pageWidth, serverInfo,authReducer });

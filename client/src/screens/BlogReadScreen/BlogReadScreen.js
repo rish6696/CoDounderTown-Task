@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useState} from "react";
 import Header from "../../components/Header/index";
 import FlexLayout from "../../components/FlexLayout/index";
 import MetaDataBlog from "../../components/MetaBlogComponent/MetaBlogComponent";
@@ -9,9 +9,23 @@ import { connect } from "react-redux";
 import { setWindowSize } from "../../Actions/index";
 import TextArea from '../../components/TextArea/TextArea'
 
+import { setServerDown } from "../../Actions/index";
+import { validateUser }  from '../../AuthorizeService'
+import LoaderComponent from '../../components/Loader/Loader'
+
 function BlogReadScreen(props) {
   document.body.style.paddingTop = "120px";
   document.body.style.overflow = "hidden";
+
+
+  const [loading, setLoading] = useState(true);
+  const [authStatus, setAuthStatus] = useState({
+    userLoggedIn: false,
+    userNameAlphabet: "",
+  });
+
+  const setServerDown=props.setServerDown
+
 
   const { pageWidth }= props
 
@@ -22,6 +36,8 @@ function BlogReadScreen(props) {
   useEffect(() => {
     window.addEventListener("resize", updateWindowSize);
     updateWindowSize();
+
+    validateUser({setLoading,setAuthStatus,setServerDown});
 
     return () => {
       window.removeEventListener("resize", updateWindowSize);
@@ -56,9 +72,17 @@ function BlogReadScreen(props) {
     blogText,
   } = props.location.blogDetails;
 
+
+  if (loading) return <LoaderComponent/>;
+
+
+
   return (
     <div style={{ height: "100vh", overflowY: "scroll" }}>
-      <Header />
+      <Header
+        userNameAlphabet={authStatus.userNameAlphabet}
+        userLoggedIn={authStatus.userLoggedIn}
+      />
       <FlexLayout rowORColumn="column" alignItem="center">
         <div   >
           <Heading style={{marginLeft:'30px'}} className="blog-read-heading" text={heading} />
@@ -80,6 +104,7 @@ const mapStateToProps = (state) => {
   
   const mapActionsToProps = {
     setWindowSize: setWindowSize,
+    setServerDown
   };
   
   export default connect(mapStateToProps, mapActionsToProps)(withRouter(BlogReadScreen))

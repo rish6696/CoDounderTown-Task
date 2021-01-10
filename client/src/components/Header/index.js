@@ -10,10 +10,10 @@ import UserIcon from "../UserIcon/Index";
 import { withRouter } from "react-router-dom";
 import BrandLogo from '../BrandLogo/Index'
 
-const Header = ({ pageWidth, history }) => {
+const Header = ({ pageWidth, history,userNameAlphabet,userLoggedIn }) => {
   const [showSideBar, setSideBarActive] = useState(false);
 
-  const userLoggedIn = false;
+  
 
   const handleClick = () => {
     setSideBarActive(!showSideBar);
@@ -21,7 +21,7 @@ const Header = ({ pageWidth, history }) => {
 
   const getHeaderMenu = () => {
     if (userLoggedIn) {
-      return <UserIcon />;
+      return <UserIcon userNameAlphabet={userNameAlphabet} />;
     } else {
       if (pageWidth < 800) {
         return (

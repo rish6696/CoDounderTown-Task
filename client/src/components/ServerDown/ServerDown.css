@@ -1,0 +1,13 @@
+.server-down-image{
+    width: 400px;
+    height: 400px;
+}
+
+
+@media only screen and (max-width: 500px) {
+  
+    .server-down-image{
+        width: 250px;
+        height: 250px;
+    }
+}

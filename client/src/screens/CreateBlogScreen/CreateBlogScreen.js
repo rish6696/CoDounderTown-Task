@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Header from "../../components/Header/index";
 import FlexLayout from "../../components/FlexLayout/index";
 import { connect } from "react-redux";
@@ -7,6 +7,9 @@ import { withRouter } from "react-router-dom";
 import BlogInput from "../../components/BlogInput/BlogInput";
 import InputBlogArea from "../../components/InputTextArea/InputTextArea";
 import Button from '../../components/Button'
+import { setServerDown } from "../../Actions/index";
+import { validateUser }  from '../../AuthorizeService'
+import LoaderComponent from '../../components/Loader/Loader'
 
 function CreateBlogScreen(props) {
   document.body.style.overflow = "hidden";
@@ -16,9 +19,20 @@ function CreateBlogScreen(props) {
     props.setWindowSize(window.innerWidth);
   };
 
+  const setServerDown=props.setServerDown
+
+
+  const [loading, setLoading] = useState(true);
+  const [authStatus, setAuthStatus] = useState({
+    userLoggedIn: false,
+    userNameAlphabet: "",
+  });
+
   useEffect(() => {
     window.addEventListener("resize", updateWindowSize);
     updateWindowSize();
+
+    validateUser({setLoading,setAuthStatus,setServerDown});
 
     return () => {
       window.removeEventListener("resize", updateWindowSize);
@@ -26,6 +40,8 @@ function CreateBlogScreen(props) {
   }, []);
 
   const pageWidth = props.pageWidth;
+
+  
 
   const getInputAreaWidth = () => {
     if (pageWidth < 994) {
@@ -39,9 +55,15 @@ function CreateBlogScreen(props) {
     }
   };
 
+
+  if (loading) return <LoaderComponent/>;
+
   return (
     <div>
-      <Header />
+       <Header
+        userNameAlphabet={authStatus.userNameAlphabet}
+        userLoggedIn={authStatus.userLoggedIn}
+      />
       <FlexLayout rowORColumn="column" alignItem="center" justifyContent="center">
         <div>
           <FlexLayout
@@ -79,6 +101,7 @@ const mapStateToProps = (state) => {
 
 const mapActionsToProps = {
   setWindowSize: setWindowSize,
+  setServerDown
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(withRouter(CreateBlogScreen));

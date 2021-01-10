@@ -1,4 +1,4 @@
-import { LOGIN_ATTEMPT, PAGE_RESIZE_ACTION, SIGNUP_ATTEMPT } from "./types";
+import { LOGIN_ATTEMPT, LOGOUT_ATTEMPT, PAGE_RESIZE_ACTION, SET_SERVER_DOWN, SIGNUP_ATTEMPT } from "./types";
 import { axiosInstance } from "../axiosService";
 
 export const setWindowSize = (size) => {
@@ -57,3 +57,29 @@ export const attemptLogin = ({ email, password, history }) => {
     }
   };
 };
+
+
+export const attemptLogout = (history) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axiosInstance.post(
+        "/auth/user/logout"
+      );
+      window.location='/'
+
+      dispatch({
+        type: LOGOUT_ATTEMPT,
+        payload: { status: true },
+      });
+    } catch (error) {
+      alert('something went wrong')
+    }
+  };
+};
+
+
+export const setServerDown=()=>{
+  return {
+    type:SET_SERVER_DOWN
+  }
+}

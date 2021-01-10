@@ -18,7 +18,7 @@ authRouter.route('/user/login')
 authRouter.route('/user/validate')
      .post(validateUserController)
 
-authRouter.route('user/logout')
-    .get(logoutController)
+authRouter.route('/user/logout')
+    .post(logoutController)
 
 export default authRouter
