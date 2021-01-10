@@ -12,7 +12,7 @@ import cors from 'cors'
 const app = express();
 
 
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({credentials: true, origin: 'http://13.233.92.17:3000/'}));
 
 
 app.use(CookieParser())

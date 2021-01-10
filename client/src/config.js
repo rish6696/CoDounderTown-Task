@@ -1,1 +1,1 @@
-export const apiServerBaseUrl ='http://localhost:8080/api/'
+export const apiServerBaseUrl ='http://13.233.92.17:8080/api/'
